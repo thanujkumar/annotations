@@ -3,7 +3,8 @@ The main Java Specification Requests involved in the annotations design and deve
 * [JSR 250 Common Annotations for the Java Platform][2]
 
 *Tutorial*
-* [Java Annotation Tutorial][3]
+* [Oralce Java Annotation Tutorial][3]
+* [Java Annotation Tutorial][5]
 
 ##### Notes :aries: :sparkles:
  * Annotations can be used basically in almost every element of a Java program: classes, fields, methods, packages, variables, etc
@@ -18,10 +19,15 @@ almost in every place of the code, this is called type annotations
 castings, implements and throws clauses. Type Annotations allow improved analysis of Java code and can ensure even stronger
 type checking. 
  * All method declarations cannot have parameters and are not allowed to have a thrown clause. The return
-types are restricted to String, Class, enums, annotations and arrays of the types. No extends/implements at annotation level.
+types are restricted to primitives, String, Class, enums, annotations and arrays of the types. No extends/implements at annotation level.
  * The @Inherited annotation is only applicable to classes and annotations present in the interfaces have no effect in the implementing
 classes (ex2.inherit) [API][4]
- * Annotation can't inherit from other annotations.
+ * Annotation can't inherit from other annotations and few more restrictions:
+   * Annotation type declarations cannot be generic.
+   * No extends clause is permitted. (Annotation types implicitly extend annotation.Annotation.)
+   * Methods cannot have any parameters
+   * Methods cannot have any type parameters
+   * Method declarations cannot have a throws clause
 
 ```
    //in method parameters
@@ -48,14 +54,14 @@ annotation is a kind of Meta annotation, since it is marking an annotation and i
     * _RUNTIME:_ Means that the annotation is going to be retained by the Java Virtual Machine and can be used in runtime via reflection.
 
  * **@Target:** This one restricts the elements that an annotation can be applied to. The syntactic locations where annotations may appear are split into `declaration contexts` , where annotations apply to declarations, and `type contexts`, where annotations apply to types used in declarations and expressions
-     *  *ANNOTATION_TYPE* means that the annotation can be applied to other annotation.
+     *  *ANNOTATION_TYPE* means that the annotation can be applied to other annotation. Thus, the annotation can only be used to annotate other annotations. Like the @Target and @Retention annotations. 
      *  *CONSTRUCTOR* can be applied to a constructor.
      *  *FIELD* can be applied to a field or property.
      *  *LOCAL_VARIABLE* can be applied to a local variable.
      *  _METHOD_ can be applied to a method-level annotation.
      *  _PACKAGE_ can be applied to a package declaration.
      *  _PARAMETER_ can be applied to the parameters of a method.
-     *  _TYPE_ can be applied to any element of a class.
+     *  _TYPE_ The TYPE target means any type. A type is either a class, interface, enum or annotation.
      *  *TYPE_PARAMETER*
      *  *TYPE_USE*
 
@@ -80,4 +86,5 @@ correctly.
 [2]: https://jcp.org/en/jsr/detail?id=250
 [3]: https://docs.oracle.com/javase/tutorial/java/annotations/index.html
 [4]: https://docs.oracle.com/javase/7/docs/api/java/lang/annotation/Inherited.html
+[5]: http://tutorials.jenkov.com/java/annotations.html
 
