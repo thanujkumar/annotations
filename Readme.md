@@ -5,7 +5,7 @@ The main Java Specification Requests involved in the annotations design and deve
 *Tutorial*
 * [Java Annotation Tutorial][3]
 
-##### Notes :aries: :+1:
+##### Notes :aries: :sparkles:
  * Annotations can be used basically in almost every element of a Java program: classes, fields, methods, packages, variables, etc
  * Since Java 8 annotations can be placed
 almost in every place of the code, this is called type annotations
