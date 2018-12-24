@@ -5,7 +5,7 @@ The main Java Specification Requests involved in the annotations design and deve
 *Tutorial*
 * [Java Annotation Tutorial][3]
 
-##### Notes :aries:
+##### Notes :aries: :+1:
 > * Annotations can be used basically in almost every element of a Java program: classes, fields, methods, packages, variables, etc
 > * Since Java 8 annotations can be placed
 almost in every place of the code, this is called type annotations
@@ -17,6 +17,11 @@ almost in every place of the code, this is called type annotations
 > * Since Java 8 it is also possible to use annotations within types. That is anywhere you can use a type, including the new operator,
 castings, implements and throws clauses. Type Annotations allow improved analysis of Java code and can ensure even stronger
 type checking. 
+> * All method declarations cannot have parameters and are not allowed to have a thrown clause. The return
+types are restricted to String, Class, enums, annotations and arrays of the types. No extends/implements at annotation level.
+> * The @Inherited annotation is only applicable to classes and annotations present in the interfaces have no effect in the implementing
+classes (ex2.inherit) [API][4]
+> * Annotation can't inherit from other annotations.
 
 ```
    //in method parameters
@@ -74,4 +79,5 @@ correctly.
 [1]: https://www.jcp.org/aboutJava/communityprocess/final/jsr175/index.html
 [2]: https://jcp.org/en/jsr/detail?id=250
 [3]: https://docs.oracle.com/javase/tutorial/java/annotations/index.html
+[4]: https://docs.oracle.com/javase/7/docs/api/java/lang/annotation/Inherited.html
 
