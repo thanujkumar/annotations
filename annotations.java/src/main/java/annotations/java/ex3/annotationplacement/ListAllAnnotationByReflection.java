@@ -1,7 +1,6 @@
 package annotations.java.ex3.annotationplacement;
 
 import java.lang.annotation.Annotation;
-import java.lang.reflect.AnnotatedType;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
