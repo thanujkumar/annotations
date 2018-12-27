@@ -29,7 +29,7 @@ classes (ex2.inherit) [API][4]
    * Methods cannot have any type parameters
    * Method declarations cannot have a throws clause
 
-```
+```java
    //in method parameters
    public void doSomeWork(@TypeAnnotated int param) {
    
