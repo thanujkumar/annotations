@@ -1,12 +1,8 @@
 package annotations.java.ex1;
 
 import java.lang.annotation.Annotation;
-import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
-import java.sql.Connection;
-
-import javax.sql.XAConnection;
 
 @Author(date = "2018-10-10")
 public class HowToUse {
