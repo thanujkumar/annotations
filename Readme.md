@@ -62,15 +62,16 @@ annotation is a kind of Meta annotation, since it is marking an annotation and i
      *  _PACKAGE_ can be applied to a package declaration.
      *  _PARAMETER_ can be applied to the parameters of a method.
      *  _TYPE_ The TYPE target means any type. A type is either a class, interface, enum or annotation.
-     *  *TYPE_PARAMETER*
-     *  *TYPE_USE*
+     *  *TYPE_PARAMETER* can be applied to the type parameter declaration.
+     *  *TYPE_USE* can be applied to any type
 
  * **@Repeatable:** indicates that an annotation annotated with this one can be applied more than once to the same element
 declaration.
 
  * **@Documented:** The annotated elements are going to be documented using the Javadoc tool.
 
- * **@Inherited:** By default annotations are not inherited by subclasses. This annotation marks an annotation so as to allow l subclasses to extend this annotated class.
+ * **@Inherited:** By default annotations are not inherited by subclasses. This annotation marks an annotation so as to allow subclasses to extend this annotated class.
+     _By default, annotations are not inherited by subclasses. But if an annotation is marked as  @Inherited, that means when a class is annotated with that annotation, the annotation is also inherited by subclasses. This annotation is applicable only for class. **Note** that if an interface is annotated with that annotation, the annotation is not inherited by implementing classes._
 
  * **@Deprecated:** Indicates that the annotated element should not be used, generates compiler warnings.
 
