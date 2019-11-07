@@ -49,8 +49,8 @@ ___
 
  * **@Retention:** This annotation annotates other annotations and it is used to indicate how to store the marked annotation. This
 annotation is a kind of Meta annotation, since it is marking an annotation and informing about its nature. Possible values are:
-    * *SOURCE*: Indicates that this annotation is ignored by compiler and JVM (not available at runtime) and it is only retained in the source.
-    * _CLASS:_ Indicates that the annotation is going to be retained by the compiler but ignored by the JVM at runtime (not going to be available at runtime).
+    * *SOURCE*: Indicates that this annotation is ignored by compiler and JVM (not available at runtime) and it is only retained in the source (like @override, @SuppressWarnings).
+    * _CLASS:_ Indicates that the annotation is going to be retained by the compiler but ignored by the JVM at runtime (not going to be available at runtime). This means discarded during class load. Useful when doing bytecode-level post processing (this is the default).
     * _RUNTIME:_ Means that the annotation is going to be retained by the Java Virtual Machine and can be used in runtime via reflection.
 
  * **@Target:** This one restricts the elements that an annotation can be applied to. The syntactic locations where annotations may appear are split into `declaration contexts` , where annotations apply to declarations, and `type contexts`, where annotations apply to types used in declarations and expressions
@@ -59,7 +59,7 @@ annotation is a kind of Meta annotation, since it is marking an annotation and i
      *  *FIELD* can be applied to a field or property.
      *  *LOCAL_VARIABLE* can be applied to a local variable.
      *  _METHOD_ can be applied to a method-level annotation.
-     *  _PACKAGE_ can be applied to a package declaration.
+     *  _PACKAGE_ can be applied to a package declaration(package-info.java).
      *  _PARAMETER_ can be applied to the parameters of a method.
      *  _TYPE_ The TYPE target means any type. A type is either a class, interface, enum or annotation.
      *  *TYPE_PARAMETER* can be applied to the type parameter declaration.
@@ -83,9 +83,28 @@ correctly.
 
  * **@SafeVarags:** A programmer assertion that the body of the annotated method or constructor does not perform potentially unsafe operations on its varargs parameter. Applying this annotation to a method or constructor suppresses unchecked warnings about a non-reifiable variable arity (vararg) type and suppresses unchecked warnings about parameterized array creation at call sites.
 
+
+-------------------------------
+Java 9 
+
+|TARGET	| DESCRIPTION |
+|-------|-------------| 
+|Annotation Type|Annotates another annotation|
+|Constructor| Annotates a constructor|
+|Field|Annotates a field, such as an instance variable of a class or an enum constant|
+|Local variable|	Annotates a local variable|
+|Method|	Annotates a method of a class|
+|Module|	Annotates a module (new in Java 9)|
+|Package|	Annotates a package|
+|Parameter|	Annotates a parameter to a method or constructor|
+|Type|	Annotates a type, such as a class, interfaces, annotation types, or enum declarations|
+|Type Parameter|	Annotates a type parameter, such as those used as formal generic parameters|
+|Type Use|	Annotates the use of a type, such as when an object of a type is created using the newkeyword, when an object is cast to a specified type, when a class implements an interface, or when the type of a throwable object is declared using the throws keyword (for more information, see the [Type Annotations and Pluggable Type Systems Oracle tutorial][6])|
+
 [1]: https://www.jcp.org/aboutJava/communityprocess/final/jsr175/index.html
 [2]: https://jcp.org/en/jsr/detail?id=250
 [3]: https://docs.oracle.com/javase/tutorial/java/annotations/index.html
 [4]: https://docs.oracle.com/javase/7/docs/api/java/lang/annotation/Inherited.html
 [5]: http://tutorials.jenkov.com/java/annotations.html
+[6]: https://docs.oracle.com/javase/tutorial/java/annotations/type_annotations.html
 
