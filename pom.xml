@@ -1,34 +1,83 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>annotations</groupId>
-	<artifactId>annotations</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	
-	<packaging>pom</packaging>
-	
-	<properties>
-		<version.java>1.8</version.java>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>annotations</groupId>
+    <artifactId>annotations</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
 
-	<!-- Test -->
-		<version.junit>5.3.2</version.junit>
-		<version.junit.platform>1.3.2</version.junit.platform>
+    <packaging>pom</packaging>
 
-		<!-- core maven plugins -->
-		<version.surefire.plugin>2.22.0</version.surefire.plugin>
-		<version.failsafe.plugin>${version.surefire.plugin}</version.failsafe.plugin>
-		<version.compiler.plugin>3.8.0</version.compiler.plugin>
+    <properties>
+        <version.java>1.8</version.java>
 
-		<!-- Project -->
-		<maven.compiler.source>${version.java}</maven.compiler.source>
-		<maven.compiler.target>${version.java}</maven.compiler.target>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-	</properties>
-	
-	<modules>
-		<module>annotations.java</module>
-	</modules>
-	
-	
+        <!-- Test -->
+        <version.junit>5.3.2</version.junit>
+        <version.junit.platform>1.3.2</version.junit.platform>
+
+        <!-- spring framework -->
+        <version.spring.framework>5.2.1.RELEASE</version.spring.framework>
+
+        <!-- core maven plugins -->
+        <version.surefire.plugin>2.22.0</version.surefire.plugin>
+        <version.failsafe.plugin>${version.surefire.plugin}</version.failsafe.plugin>
+        <version.compiler.plugin>3.8.0</version.compiler.plugin>
+
+        <!-- Project -->
+        <maven.compiler.source>${version.java}</maven.compiler.source>
+        <maven.compiler.target>${version.java}</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    </properties>
+
+    <modules>
+        <module>annotations.java</module>
+        <module>annotations.spring</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- Provides basic classes for exception handling and version detection, and other core helpers that are not specific to any part of the framework. -->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-core</artifactId>
+                <version>${version.spring.framework}</version>
+            </dependency>
+            <!-- This package contains interfaces and classes for manipulating Java beans -->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-beans</artifactId>
+                <version>${version.spring.framework}</version>
+            </dependency>
+            <!-- Core abstractions behind the Spring Expression Language. -->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-expression</artifactId>
+                <version>${version.spring.framework}</version>
+            </dependency>
+            <!-- Core Spring AOP interfaces, built on AOP Alliance AOP interoperability interfaces -->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-aop</artifactId>
+                <version>${version.spring.framework}</version>
+            </dependency>
+            <!-- This package builds on the beans package to add support for message sources and for the Observer design pattern, and the ability for application objects to obtain resources using a consistent API. -->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context</artifactId>
+                <version>${version.spring.framework}</version>
+            </dependency>
+            <!-- Classes supporting the org.springframework.context package, such as abstract base classes for ApplicationContext implementations and a MessageSource implementation. -->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context-support</artifactId>
+                <version>${version.spring.framework}</version>
+            </dependency>
+            <!-- This package contains the Spring TestContext Framework which provides annotation-driven unit and integration testing support that is agnostic of the actual testing framework in use.-->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-test</artifactId>
+                <version>${version.spring.framework}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 </project>
