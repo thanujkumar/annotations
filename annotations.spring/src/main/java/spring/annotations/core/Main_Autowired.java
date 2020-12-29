@@ -11,6 +11,8 @@ public class Main_Autowired {
         for(String bean : ctx.getBeanDefinitionNames()) {
              System.out.println("Loaded [Bean Name] : "+ bean);
         }
+
+        System.out.println(ctx.getBean("getName"));
     }
 }
 
